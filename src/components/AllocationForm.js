@@ -15,10 +15,13 @@ const AllocationForm = (props) => {
             return;
         }
 
+
+
         const expense = {
             name: name,
             cost: parseInt(cost),
         };
+        
 
         if (action === "Reduce") {
             dispatch({
@@ -62,7 +65,15 @@ const AllocationForm = (props) => {
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setCost(event.target.value)}>
+                        onChange={(event) => {
+                            if (isNaN(event.target.value)) {
+                                setCost("");
+                            } else {
+                                setCost(event.target.value)
+                            }
+                        }}>
+                            
+                        
                         </input>
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
