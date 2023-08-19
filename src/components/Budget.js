@@ -46,6 +46,8 @@ const Budget = () => {
                 id='budget'
                 step = "10"
                 value={budget}
+                min = "0"
+                max = "30000"
                 onChange = {(event)=> {
                     onChange(event.target.value);
                     }
