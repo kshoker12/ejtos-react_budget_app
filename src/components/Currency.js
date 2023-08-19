@@ -14,10 +14,13 @@ const Currency = () => {
     }
 
     return (
-            <fieldset >
+            <div
+                >
+                <label 
+                    style = {{position: "absolute",color:"white", marginTop: "12px", marginLeft: "20px", marginRight: "10px"}}>Currency: </label>
                 <select 
                     className = "custom-select"
-                    style = {{color: 'white', backgroundColor: 'lightgreen', width: "200px", height: "50px", textAlign: 'center'}}
+                    style = {{color: 'white', backgroundColor: 'lightgreen', width: "100%", height: "50px", textAlign: 'center'}}
                     id="select"
                     name = ""
                     onChange = {(event) => {
@@ -28,7 +31,7 @@ const Currency = () => {
                     <option value = "€" name = "€ Euro ">€ Euro</option>
                     <option value = "₹" name = "₹ Ruppee">₹ Ruppee</option>
                 </select>
-            </fieldset>
+            </div>
     )
 }
 

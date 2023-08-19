@@ -44,7 +44,7 @@ const ExpenseItem = (props) => {
             <td>{currency}{props.cost}</td>
             <td>
                 <button 
-                    style = {{display: "flex", border: "1px", borderRadius: "50%", backgroundColor: "limegreen", fontSize:"15px", fontWeight: "bold", color:"white", borderColor:"white", textAlign: "center"}}
+                    style = {{display: 'inline-flex', border: "1px", backgroundColor: "limegreen", fontWeight: "bolder", color:"white", borderColor:"white",width: "40px", height: "40px", borderRadius: "50%", textAlign: "center", alignItems:"center", justifyContent: "center", fontSize:"25px", padding:"1px"}}
                     onClick = {
                         event=> increaseAllocation(props.name)
                     }
@@ -53,7 +53,7 @@ const ExpenseItem = (props) => {
 
             <td>
                 <button 
-                    style = {{display: "flex", border: "1px", borderRadius: "50%", backgroundColor: "red", fontSize:"15px", fontWeight: "bold", color:"white", borderColor:"white", textAlign: "center"}}
+                    style = {{display: 'inline-flex', border: "1px", backgroundColor: "red", fontWeight: "bolder", color:"white", borderColor:"white",width: "40px", height: "40px", borderRadius: "50%", textAlign: "center", alignItems:"center", justifyContent: "center", fontSize:"25px", padding:"1px"}}
                     onClick = {
                         event=> decreaseAllocation(props.name)
                     }
