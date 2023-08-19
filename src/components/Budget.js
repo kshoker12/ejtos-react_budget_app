@@ -4,8 +4,8 @@ import ExpenseTotal from './ExpenseTotal';
 
 const Budget = () => {
 
-    // const {budget} = useContext(AppContext);
-    const [budget, setBudget] = useState(2000);
+    const {dispatch, payload} = useContext(AppContext);
+    const {budget} = useContext(AppContext);
     const {expenses} = useContext(AppContext);
     const totalExpenses = expenses.reduce((total, item)=> {
         return (total += item.cost);
@@ -13,23 +13,29 @@ const Budget = () => {
 
     const onChange = (value) => {
         const localVal = Number(value);
-        if (localVal <= totalExpenses) {
+        if (localVal < totalExpenses) {
             alert("You cannot reduce the budget value lower than the spending");
-            setBudget(totalExpenses);
+            dispatch({
+                type: "UPDATE_BUDGET",
+                payload: totalExpenses,
+            })
             return;
         }
-        if (localVal >= 20000) {
+        if (localVal > 20000) {
             alert("The value cannot exceed 20000");
-            setBudget(20000)
+            dispatch({
+                type: "UPDATE_BUDGET",
+                payload: 20000,
+            })
             return;
         }
-        dispatchEvent(setBudget(localVal));
+        dispatch({
+            type: "UPDATE_BUDGET",
+            payload: localVal,
+        })
         
     }
 
-    const inRange = ()=> {
-    
-    }
     return (
         <div className='alert alert-secondary'>
             <span>
@@ -39,13 +45,10 @@ const Budget = () => {
                 type='number'
                 id='budget'
                 step = "10"
-                min = {totalExpenses}
-                max = "20000"
                 value={budget}
                 onChange = {(event)=> {
                     onChange(event.target.value);
-                    inRange();
-                }
+                    }
                 }
                 
                 
